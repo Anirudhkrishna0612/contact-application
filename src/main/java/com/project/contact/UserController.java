@@ -10,6 +10,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid; // Required for @Valid annotation
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -93,16 +94,58 @@ public class UserController {
 	// Showing particular contact details
 	
 	@RequestMapping("/{cId}/contact")
-	public String showContactDetail(@PathVariable("cId") Integer cId, Model model) {
+	public String showContactDetail(@PathVariable("cId") Integer cId, Model model, Principal principal) {
 		
 		System.out.println("CID"+cId);
 		Optional<Contact> contactOptional =this.contactRepository.findById(cId);
 		Contact contact = contactOptional.get();
 		
-		model.addAttribute("contact",contact);
+		
+		
+		//
+		String userName = principal.getName();
+		User user = this.userRepository.getUserByUserName(userName);
+		
+		if(user.getId()==contact.getUser().getId()) {
+			
+			model.addAttribute("contact",contact);
+			model.addAttribute("title",contact.getName());
+
+		}
+		
 		
 		return "normal/contact_detail";
 		
+	}
+	
+	// Delete contact handler
+	
+	@GetMapping("/delete/{cid}")
+	public String deleteContact(@PathVariable("cid") Integer cId,Model model,HttpSession session) {
+		
+		
+		
+		Optional<Contact> contactOptional = this.contactRepository.findById(cId);
+		
+		
+		System.out.println("CID"+cId);
+
+		
+		Contact contact = contactOptional.get();
+		
+		//Check...Assignment...
+		System.out.println("Contact"+contact.getCId());
+		
+		contact.setUser(null);
+		
+		this.contactRepository.delete(contact);
+		
+		
+		System.out.println("DELETED");
+		session.setAttribute("message", new Message ("Contact deleted successfully...","success"));
+		
+		
+		return "redirect:/user/show-contacts/0";
 	}
 	
 	
