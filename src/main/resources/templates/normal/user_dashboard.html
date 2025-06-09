@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>This is the About Page!</title>
+</head>
+
+<body>
+	<section>
+		<h1 class="text-center mt-5 text-primary">Hi! <span th:text="${user.name}"></span></h1>
+		<h5 class="text-center mt-5 text-white margin-agg">
+			This is a private dashboard
+		</h5>
+	</section>
+
+</body>
+
+</html>

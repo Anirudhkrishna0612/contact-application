@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Smart Contact Manager</title>
+</head>
+<body>
+    <section>
+        <div class="container top-bla">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="my-card mt-3">
+                        <div class="container text-center">
+                            <img class="text-center" style="width: 70px;" th:src="@{/img/login.png}" alt=""/>
+                        </div>
+                        <h2 class="text-center text-primary p1">Welcome Back</h2>
+
+                        <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                            Invalid Username or Password.
+                        </div>
+                        <div th:if="${param.logout}" class="alert alert-success" role="alert">
+                            You have been logged out.
+                        </div>
+
+                        <form th:action="@{/do_login}" method="post">
+                            <div class="form-group">
+                                <label for="username_field">Username (Email)</label>
+                                <input
+                                    type="text"
+                                    class="form-control p1"
+                                    id="username_field"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter your Email"
+                                    name="username" required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password_field">Password</label>
+                                <input
+                                    type="password"
+                                    class="form-control p1"
+                                    id="password_field"
+                                    placeholder="Enter your Password"
+                                    name="password" required
+                                />
+                            </div>
+
+                            <div class="container text-center">
+                                <button type="submit" class="btn bg-primary text-white">
+                                    Sign In
+                                </button>
+                                <button type="reset" class="btn bg-secondary text-white">
+                                    Reset
+                                </button>
+                            </div>
+                            <p class="text-center mt-3">
+                                Don't have an account? <a th:href="@{/signup}">Register Here</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

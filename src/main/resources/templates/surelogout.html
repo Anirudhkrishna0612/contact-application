@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <title>Confirm Logout</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .logout-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .logout-container h2 {
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .logout-container .btn {
+            margin: 0 10px;
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+        }
+        .logout-container .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .logout-container .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logout-container">
+        <h2>Are you sure you want to logout?</h2>
+        <div>
+            <!-- This button will trigger the actual Spring Security logout -->
+            <a th:href="@{/logout}" class="btn btn-danger">Yes, Logout</a>
+            <!-- This button will redirect back to the user dashboard -->
+            <a th:href="@{/user/index}" class="btn btn-secondary">No, Stay Logged In</a>
+        </div>
+    </div>
+</body>
+
+</html>

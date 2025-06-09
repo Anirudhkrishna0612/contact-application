@@ -1,0 +1,257 @@
+body{
+	background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url(../img/lap.jpg);
+	background-size: cover;
+}
+
+.bg-primary{
+	background-color:#FECA28!important;
+}
+.banner{
+	width:100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url(../img/programmer.jpg);
+	background-size: cover;
+	color: white;
+	margin-top: 40px;
+}
+.my-card{background-color: #ffffff;
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px; 
+    padding: 30px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; 
+    margin-bottom: 20px;
+}
+ 
+
+.my-card img {
+    margin-bottom: 20px; 
+}
+.bg-secondary{
+	background-color:rgb(255, 0, 0)!important;
+}
+.margin-agg{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+
+}
+.text-primary{
+	color:rgb(255, 0, 0)!important;
+}
+
+.p1 {
+  font-family: "Monaco" ,monospace; 
+}
+.p2 {
+	font-family: "Inter", Helvetica, sans-serif;
+}
+.p3 {
+	font-family: "Poppins", "Montserrat", sans-serif;
+}
+.p4{
+	font-family: 'Inter', sans-serif;
+}
+
+   
+
+
+
+
+/*   Side bar style         */
+
+
+
+
+/* --- Sidebar Container Styles --- */
+/* --- Base Body Font (for overall professionalism) --- */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Optional: background color for the main content area */
+    background-color: #f8f9fa; /* Light grey background for content */
+}
+
+/* --- Sidebar Container Styles --- */
+.sidebar {
+    background-color: white; /* As requested */
+    width: 250px;
+    border-right: 1px solid rgba(0, 0, 0, 0.08); /* Subtle grey border for visibility on white */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow only on the bottom for depth */
+    position: fixed;
+    left: 0;
+
+    /* --- Calculated based on a 56px Navbar Height --- */
+    top: 56px; /* Starts the sidebar 56px down from the top (below navbar) */
+    height: calc(100vh - 56px); /* Fills remaining height below navbar */
+    /* ------------------------------------------------ */
+
+    /* IMPORTANT: padding-top: 20px; was removed from here.
+       It's now handled by .sidebar-header to properly space the cross button. */
+}
+
+/* --- Sidebar Header for Cross Button Placement --- */
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end; /* Pushes the cross button to the right */
+    align-items: center; /* Vertically centers the button */
+    padding: 15px 20px; /* Provides space around the cross button */
+    margin-bottom: 5px; /* Adds some space below the header before the first menu item */
+    /* Optional: Add a subtle border below the header if you want a visual separator */
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.05); */
+}
+
+/* --- Style for Your Cross Button (&times; character) --- */
+.crossbttn {
+    color: rgb(150, 150, 150); /* A dark grey for visibility on white background */
+    font-size: 2.2em; /* Good size for clickability */
+    font-weight: 300; /* Makes the 'x' character look cleaner */
+    cursor: pointer; /* Indicates it's clickable */
+    line-height: 0.5; /* Adjusts vertical alignment of the 'x' character */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.crossbttn:hover {
+    color: rgb(255, 0, 0); /* Changes to red on hover (matches wipe color) */
+}
+
+/* --- Individual Sidebar Link Styles --- */
+.sidebar a.item {
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Ensures the link text stays above the wiping background */
+
+    display: block; /* Make the entire link area clickable */
+    width: 100%; /* Ensure it spans the full width of the sidebar */
+    padding: 18px 25px; /* Generous padding for better click area and spacing */
+    text-decoration: none; /* Remove underline */
+    color: rgb(254, 202, 40); /* Your requested yellowish color */
+    font-size: 1.05em; /* Slightly larger text for readability */
+    font-weight: 500; /* Medium font weight for a clean look */
+    transition: color 0.3s ease-in-out; /* Smooth transition for text color if it changes */
+}
+
+/* --- The Magic of the Left-to-Right Wipe Animation --- */
+.sidebar a.item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0; /* Starts at 0 width, making it invisible initially */
+    background-color: rgb(255, 0, 0); /* Your requested vibrant red color that will wipe in */
+    z-index: -1; /* Pushes this element behind the actual link text */
+    transition: width 0.4s ease-in-out; /* Defines the wipe animation: width changes over 0.4 seconds */
+}
+
+/* --- Hover State: Trigger the Wipe --- */
+.sidebar a.item:hover::before {
+    width: 100%; /* On hover, expand the pseudo-element to full width */
+}
+
+/* --- Hover State: Text Color Change --- */
+.sidebar a.item:hover {
+    color: #ffffff; /* Text color changes to white on hover */
+}
+
+/* --- Active/Selected Link Style --- */
+.sidebar a.item.active {
+    background-color: #FECA28; /* Your requested active background color */
+    color: #ffffff; /* White text for the active link */
+    font-weight: 700;
+    transition: none; /* No transition when becoming active */
+}
+
+/* Ensures the wipe effect is 'on' for the active state without animation */
+.sidebar a.item.active::before {
+    width: 100%;
+    background-color: #FECA28; /* Your requested active ::before background color */
+    transition: none;
+}
+
+/* Add a small gap between sidebar items */
+.sidebar a.item + .sidebar a.item {
+    margin-top: 5px;
+}
+
+/* --- Content Area Styling --- */
+.content {
+    /* Pushes content away from the fixed sidebar */
+    margin-left: 250px; /* Width of the sidebar */
+    /* Pushes content down from the fixed navbar */
+    padding-top: 56px; /* Height of the navbar */
+    padding-left: 20px; /* Add some general padding for content */
+    padding-right: 20px;
+}
+
+.navbar-brand {
+	    font-family: 'Montserrat', sans-serif;
+	    font-weight: 800;
+	    font-size: 1.2.5em; /* <-- CHANGE THIS VALUE TO REDUCE SIZE */
+	    color: #ffffff !important;
+}
+
+.toggle-bars{
+	color: white;
+}
+.toggle-bars {
+    cursor: pointer;
+
+    color: white;
+
+   
+    position: relative;
+    top: -10px; 
+	font-size: 2.0em;
+	font-weight: 300; 
+	line-height: 0.5;
+	transition: color 0.3s ease;
+}
+
+.toggle-bars:hover {
+    color: rgb(255, 0, 0); 
+	
+}
+
+
+.alignword{
+	padding-right: 25%;
+}
+.top-bla{
+	padding-top: 5%;
+}
+.top-blad{
+	padding-top: 6%;
+}
+
+.p6 {
+  font-family: 'Open Sans', sans-serif; /* A very popular and versatile humanist sans-serif font */
+  color: #FFFFFF; /* Pure white text */
+  font-size: 1em; /* Standard text size, feels natural */
+  font-weight: 600; /* Semi-bold for good readability */
+  letter-spacing: 0.5px; /* A touch of spacing for clarity */
+  text-shadow: black; /* Subtle black shadow for definition */
+}
+
+.p6:hover {
+  color: rgb(255, 255, 255); /* Slightly off-white on hover */
+  text-shadow: black; /* Slightly stronger shadow on hover */
+}
+
+
+.my_profile_picture{
+	
+	width: 20px;
+	height: 20px;
+	object-fit: cover;
+	border-radius: 50%;
+
+	
+}
+
+
+
+
