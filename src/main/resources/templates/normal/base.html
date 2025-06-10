@@ -13,7 +13,18 @@
 	<link rel="stylesheet" th:href="@{/css/style.css}" />
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+	
+	
+	
+	
+	
 	<title th:text="${title}"></title>
 </head>
 
@@ -27,17 +38,10 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active">
-					<a class="nav-link" th:href="@{/}" href="#"> Home <span class="sr-only">(current)</span></a>
-				</li>
+				
+				
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/about}" href="#">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/login}" href="#">LogIn</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link p6" href="#"><span th:text="${user.name}"></span></a>
+					<a th:href="@{/user/profile}" class="nav-link p6" href="#"><span th:text="${user.name}"></span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" th:href="@{/sure/logout}" href="#">Logout</a>
@@ -56,7 +60,7 @@
 		<a th:href="@{/user/index}" href="#" class="item"> <i class="fa-solid fa-house icon-margin-right"> </i> Home</a>
 		<a th:href="@{/user/show-contacts/0}" href="#" class="item"> <i class="fa-solid fa-address-book icon-margin-right"> </i> View Contacts </a>
 		<a th:href="@{/user/add-contact}" href="#" class="item"> <i class="fa-solid fa-file-signature icon-margin-right"> </i> Add Contacts</a>
-		<a href="#" class="item"> <i class="fa-solid fa-user icon-margin-right"> </i> Your Profile :)</a>
+		<a th:href="@{/user/profile}" href="#" class="item"> <i class="fa-solid fa-user icon-margin-right"> </i> Your Profile :)</a>
 		<a href="#" class="item"> <i class="fa-solid fa-gears icon-margin-right"> </i> Settings</a>
 		<a th:href="@{/sure/logout}" href="#" class="item"> <i class="fa-solid fa-right-from-bracket icon-margin-right"> </i> Logout</a>
 

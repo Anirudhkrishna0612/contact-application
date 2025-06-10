@@ -54,6 +54,24 @@ body{
 	font-family: 'Inter', sans-serif;
 }
 
+.p9 {
+    font-family: 'Crimson Text', serif;
+    color:#FECA28!important;
+    font-weight: 600; /* This gives it a semi-bold, professional look */
+}
+
+.p10 {
+    font-family: 'Bangers', display; /* Or 'sans-serif' as a fallback */
+    color: #000000;
+}
+.p8 {
+    font-family: 'Cormorant Garamond', serif;
+    color:#FECA28!important;
+}
+.p7 {
+    font-family: 'Squada One', cursive; /* or 'display' as a fallback */
+    color: #000000;
+}
    
 
 
@@ -261,6 +279,22 @@ body {
 	margin-left: 5px;
 
 	
+}
+
+
+/*  Search css   */
+
+.search-container{
+	position: relative;
+	
+}
+.search-result{
+	position: absolute;
+	background: white;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid gray;
+	display: none;
 }
 
 

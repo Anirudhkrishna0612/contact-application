@@ -8,10 +8,31 @@
 
 <body>
 	<section>
-		<h1 class="text-center mt-5 text-primary">Hi! <span th:text="${user.name}"></span></h1>
-		<h5 class="text-center mt-5 text-white margin-agg">
-			This is a private dashboard
-		</h5>
+
+		<div class="container">
+
+			<div class="card">
+
+				<div class="card-body">
+					<div class="container text-center">
+
+						<img src="" style="height: 200px; width: 200px;" class="my_profile_picture"
+							th:src="@{'/img/cnc.png'}" alt="profile photo" />
+
+					</div>
+					
+					<h1 class="text-center mt-3 text-secondary">Start adding Contacts to cloud :)</h1>
+					
+					<a th:href="@{/user/add-contact}" class="btn bg-primary btn-lg text-white btn-block text-upper mt-3">Add new contact</a>
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+
 	</section>
 
 </body>
