@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes; // Required for RedirectAttributes
@@ -218,4 +219,87 @@ public class UserController {
 		// Always redirect after processing a form submission (success or general error)
 		return "redirect:/user/add-contact"; 
 	}
+	
+	
+	//Open Update form
+	
+	@PostMapping("/update-contact/{cid}")
+	public String updateForm(@PathVariable("cid") Integer cid,Model m) {
+		
+		m.addAttribute("title","Update Contact");
+		
+		Contact contact = this.contactRepository.findById(cid).get();
+		
+		m.addAttribute("contact", contact);
+		
+		return "normal/update_form";
+	}
+	
+	// Update Contact Handler
+	
+	@RequestMapping(value = "/process-update",method = RequestMethod.POST)
+	public String updateHandler(@ModelAttribute Contact contact,@RequestParam("profileImage")MultipartFile file,Model m,HttpSession session,Principal principal) {
+		
+		try {
+			
+			//old contact details 
+			Contact oldcontactDetail = this.contactRepository.findById(contact.getCId()).get();
+			
+			
+			//image...
+			if(!file.isEmpty()) {
+				
+				//file works...
+				//rewrite
+//				delete old photo
+				
+				File deleteFile = new ClassPathResource("static/img").getFile();
+				File file1 = new File(deleteFile, oldcontactDetail.getImage());
+				file1.delete();
+				
+				
+//              update new photo	
+				
+				
+				File uploadDir = new ClassPathResource("static/img").getFile();
+				// Create the directory if it doesn't exist
+				if (!uploadDir.exists()) {
+                    uploadDir.mkdirs();
+                }
+                Path path = Paths.get(uploadDir.getAbsolutePath() + File.separator + file.getOriginalFilename());
+                
+                // Copy the file to the target location
+                Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+				
+                contact.setImage(file.getOriginalFilename());
+                
+                
+				
+			}else {
+				
+				contact.setImage(oldcontactDetail.getImage());
+				
+			}
+			User user = this.userRepository.getUserByUserName(principal.getName());
+			
+			contact.setUser(user);
+			
+			this.contactRepository.save(contact);
+			
+			session.setAttribute("message", new Message("Your Contact is updated...","success"));
+			
+			
+			
+		}catch (Exception e) {
+			 
+			e.printStackTrace();
+			
+		}
+		
+		
+		System.out.println("CONTACT NAME "+contact.getName());
+		System.out.println("CONTACT ID "+contact.getCId());
+		return "redirect:/user/"+contact.getCId()+"/contact";
+	}
+	
 }
