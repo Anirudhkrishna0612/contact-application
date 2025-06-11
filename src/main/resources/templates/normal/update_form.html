@@ -24,11 +24,11 @@
 							<form action="#" th:object="${contact}" enctype="multipart/form-data" method="POST"
 								th:action="@{/user/process-update}" class="mt-2">
 
-								
-								<input type="hidden" th:value="${contact.cId}" name="cId"   />
-								
-								
-								
+
+								<input type="hidden" th:value="${contact.cId}" name="cId" />
+
+
+
 								<!--    First name       -->
 								<div class="input-group">
 									<div class="input-group-prepend">
@@ -110,14 +110,15 @@
 								</div>
 
 								<!--   Contact   Image       -->
-								
+
 								<div class="container">
 									<p4>Change Profile Picture?</p4>
-									
-									<img class="img-fluid my_profile_pic" src="" th:src="@{'/img/'+${contact.image}}" alt="" />
-									
+
+									<img class="img-fluid my_profile_pic" src="" th:src="@{'/img/'+${contact.image}}"
+										alt="" />
+
 								</div>
-								
+
 								<div class="custom-file">
 									<input type="file" name="profileImage" class="form-control-file" />
 								</div>
