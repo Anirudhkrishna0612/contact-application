@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang = "en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
 <head>
-	<meta charset = "UTF-8" />
-	<title>This is the About Page!</title>
+    <meta charset="UTF-8" />
+    <title>About Us | Smart Contact Manager</title>
+    <link rel="stylesheet" th:href="@{/css/about.css}" /> <!-- Linking the external CSS file -->
 </head>
 <body>
-	<section>			
-		<h1 class="text-center mt-5 text-primary p1 content alignword ">About Us</h1>
-		<div class="row justify-content-center">
-		    <h5 class="text-white mt-5 col-md-8 margin-agg ">
-		        <p class="text-center p2">The Smart Contact Manager is a modern, intuitive, and secure web application designed to help individuals and small businesses efficiently organize and manage their professional and personal contacts. In today's interconnected world, effective contact management is crucial for maintaining relationships and fostering growth.</p>
-		    </h5>
-		</div>
-	</section>
-
+    <section class="container about-section d-flex justify-content-center align-items-center">
+        <div class="about-box mx-auto text-center"> <!-- Centering the box -->
+            <h1 class="about-title">About <span class="highlight">Smart Contact Manager</span></h1>
+            <div class="about-content">
+                <p>
+                    The <span class="highlight">Smart Contact Manager</span> is a <span class="highlight">modern, intuitive, and secure</span> web application designed to help individuals and businesses efficiently organize and manage their contacts.
+                </p>
+                <p>
+                    In today's interconnected world, maintaining relationships is crucial for <span class="highlight">personal and professional growth</span>. Our platform ensures seamless contact management with <span class="highlight">advanced features, a sleek interface, and top-notch security</span>.
+                </p>
+                <p>
+                    Whether you're a freelancer, entrepreneur, or part of a growing team, <span class="highlight">Smart Contact Manager</span> empowers you to stay connected effortlessly.
+                </p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

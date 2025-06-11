@@ -12,12 +12,14 @@ import jakarta.validation.constraints.Pattern; // Import for @Pattern (optional,
 import jakarta.validation.constraints.Size; // Import for @Size
 
 import com.fasterxml.jackson.annotation.JsonIgnore; // Keep this if you're using it
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("cId")
     private int cId;
 
     @NotBlank(message = "Name field is required !!") // Ensures the name is not empty or just whitespace

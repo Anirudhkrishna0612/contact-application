@@ -34,7 +34,7 @@
 									<input required type="text" id="firstName" name="name" placeholder="Enter Full Name"
 										th:value="${contact.name}"
 										th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}"
-										class="form-control" />
+										class="form-control" autocomplete="off" />
 									<!-- Display error message for 'name' field -->
 									<div th:each="e : ${#fields.errors('name')}" th:text="${e}"
 										class="invalid-feedback"></div>
@@ -50,7 +50,7 @@
 									</div>
 									<input required type="text" id="secondName" name="secondName"
 										placeholder="Enter Nick Name" th:value="${contact.secondName}"
-										class="form-control" />
+										class="form-control" autocomplete="off" />
 								</div>
 
 
@@ -81,7 +81,7 @@
 									<input required type="email" id="email" name="email" placeholder="Enter Email id"
 										th:value="${contact.email}"
 										th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
-										class="form-control" />
+										class="form-control" autocomplete="off" />
 									<div th:each="e : ${#fields.errors('email')}" th:text="${e}"
 										class="invalid-feedback"></div>
 								</div>
@@ -94,7 +94,7 @@
 										</div>
 									</div>
 									<input required type="text" id="work" name="work" placeholder="Enter Occupation"
-										th:value="${contact.work}" class="form-control" />
+										th:value="${contact.work}" class="form-control" autocomplete="off" />
 								</div>
 
 

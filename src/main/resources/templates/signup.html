@@ -12,7 +12,7 @@
 						</div>
 
 						<div class="container text-center">
-							<img class="text-center" style="width: 70px;" src="" th:src="@{/img/lap.jpg}" alt="" />
+							<img class="text-center" style="width: 70px;" src="" th:src="@{/img/cpp.png}" alt="" />
 						</div>
 						<h1 class="text-center text-primary p1">Get Started</h1>
 						<form action="" th:action="@{/do_register}" method="post" th:object="${user}">
@@ -20,7 +20,7 @@
 								<label for="name_field">Your Name</label>
 								<input name="name" type="text" class="form-control p1" id="name_field"
 									aria-describedby="emailHelp" placeholder="Enter Here" required
-									th:value="${user.name}" />
+									th:value="${user.name}" autocomplete="off" />
 
 
 
@@ -31,13 +31,13 @@
 								<label for="email_field">Your Email</label>
 								<input name="email" type="email" class="form-control p1" id="email_field"
 									aria-describedby="emailHelp" placeholder="eg: abc@gmail.com" required
-									th:value="${user.email}" />
+									th:value="${user.email}" autocomplete="off" />
 							</div>
 							<div class="form-group">
 								<label for="password_field">Enter a Password</label>
 								<input name="password" type="password" class="form-control p1" id="password_field"
 									aria-describedby="emailHelp" placeholder="Don't forget your password !" required
-									th:value="${user.password}" />
+									th:value="${user.password}" autocomplete="off" />
 							</div>
 							<div class="form-group p1">
 								<textarea name="about" placeholder="Tell about yourself" rows="10" class="form-control"

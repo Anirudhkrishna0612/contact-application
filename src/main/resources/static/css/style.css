@@ -297,6 +297,44 @@ body {
 	display: none;
 }
 
+/* Ensuring the About section is visible and centered */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Adjusts height to fit within the container */
+    margin-top: 100px; /* Pushes content below the fixed navbar */
+}
 
+/* White box with curved corners and shadow */
+.about-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px; /* Curved corners */
+    
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    margin: auto; /* Ensures horizontal centering */
+}
 
+/* Title Styling */
+.about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1e3c72;
+    margin-bottom: 20px;
+}
 
+/* Content Styling */
+.about-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333; /* Dark text for readability */
+}
+
+/* Highlighted Text */
+.highlight {
+    color: #ffcc00; /* Yellow highlight */
+    font-weight: bold;
+}
